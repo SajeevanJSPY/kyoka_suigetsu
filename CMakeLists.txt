@@ -26,7 +26,14 @@ set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS
   $<$<CONFIG:Debug>:_DEBUG>
 )
 
+# C standard
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
 project (kyoka_suigetsu)
+
+# include paths
+include_directories(${CMAKE_SOURCE_DIR}/core)
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin CACHE INTERNAL "" FORCE)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib CACHE INTERNAL "" FORCE)
@@ -43,7 +50,7 @@ mark_as_advanced(WITH_OPENGL_BACKEND)
 
 # //------------------ Bins and Libs -------------------//
 # //----------------------------------------------------//
-# add_subdirectory(core)
+add_subdirectory(core)
 # add_subdirectory(platform)
 # add_subdirectory(kanzen_saimin)
 
